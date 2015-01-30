@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <h1>Band Tracker</h1>
+</div>
+
+<h3>Add a Band:</h3>
+
+<form action:"/" method="post">
+  <div class="form-group">
+    <input name="band_name" class="form-control" type="text" placeholder="Band Name!">
+    <br><br>
+    <button class="btn btn-success" value="submit">Add That Band</button>
+  </div>
+</form>
+
+<hr>
+
+<% if @bands.any? %>
+  <% @bands.each do |band| %>
+  <ul>
+    <li>
+      <a href="/band/<%= band.id %>"><b><%= band.band_name %></b></a>
+      <a href="/band_edit/<%= band.id %>"><em>Edit and/or Delete this band</em></a>
+    </li>
+  </ul>
+  <% end %>
+<% else %>
+  <p>There are no bands here, brah!</p>
+<% end %>
+
+
+<a href="/venue">Add a venue to the list!</a>

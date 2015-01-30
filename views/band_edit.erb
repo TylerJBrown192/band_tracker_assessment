@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <h1><%= @band.band_name %>'s Edit Page</h1>
+</div>
+
+<h3>Edit the Band's name</h3>
+
+<form action="/band_edit/<%= @band.id() %>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <div class="form-group">
+    <input name="new_band" class="form-control" type="text" placeholder="Update this band's name?">
+    <br>
+    <button class="btn btn-warning" value="submit">Change band name</button>
+  </div>
+</form>
+
+<h3>Or delete the Band</h3>
+
+<form action="/band_delete/<%= @band.id() %>" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <div class="form-group">
+    <button class="btn btn-danger" value="submit">Delete this band</button>
+  </div>
+</form>

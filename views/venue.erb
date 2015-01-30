@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <h1>Venues</h1>
+</div>
+
+<form action="/venue" method="post">
+  <div class="form-group">
+    <input name="venue_name" class="form-control" type="text" placeholder="Venue name?">
+    <br><br>
+    <button class="btn btn-success" value="submit">Add a Venue!</button>
+  </div>
+</form>
+
+<% if @venues.any? %>
+  <% @venues.each do |venue| %>
+  <ul>
+    <li><%= venue.venue_name %></li>
+  </ul>
+  <% end %>
+<% else %>
+  <p>There are no venues added yet, brah!</p>
+<% end %>
+
+<a href="/">Go to homepage</a>
